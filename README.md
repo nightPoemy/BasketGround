@@ -1,82 +1,76 @@
+# BasketGround: A Multi-dimensional Vision-Language Dataset for Basketball Video Analysis
 
-# 🏀 BasketGround: A Multi-dimensional Vision-Language Dataset for Basketball Video Analysis
-Basketball Video Analysis
+[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/nightPoemy/BasketGround)
+[![Dataset](https://img.shields.io/badge/Dataset-Download-blue)](https://github.com/nightPoemy/BasketGround)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-green)](LICENSE)
 
----
-
-## 📌 Overview
-
-We present **BASKETGROUND**, a dataset for **Fine-grained Video Analysis** in basketball videos.
-
-Unlike existing datasets, BASKET focuses on fine-grained semantic understanding in highly dynamic, multi-player sports scenarios. 
-
-Each instance in BASKET is annotated with rich visual and semantic information, including:
-
-- 🧑 Player identity (name, team affiliation, jersey color and number)  
-- 🏀 Fine-grained actions and player interactions  
-- 📍 Spatial-temporal localization (bounding boxes and temporal segments)
-- 🎽 Comprehensive captions   
-This benchmark introduces significant challenges due to **occlusions, short duration, and similar appearances among players**, making it a strong testbed for multimodal reasoning.
+**BasketGround** 是一个专门为篮球视频理解设计的语义增强型多维视觉语言数据集。它在 [MultiSports](https://github.com/MCG-NJU/MultiSports) 数据集的基础上，通过引入球员身份（Identity）、团队属性（Team）、精细化动作语义（Action）、球场空间位置（Location）以及自然语言标题（Caption），构建了一个全方位的篮球视频分析基准。
 
 ---
 
-## 🎯 Key Features
+## 🏀 数据集概览
 
-- 🔹 **Multi-entity reasoning**: identity + action + spatial grounding  
-- 🔹 **Fine-grained annotations**: player name, team, jersey color, number  
-- 🔹 **Challenging scenarios**: occlusion, fast motion, multi-player interaction  
-- 🔹 **Compositional Semantics** 
-- 🔹 **Annotation Reliability**
+![Overview](https://github.com/nightPoemy/BasketGround/raw/main/assets/overview.png)  
+*图 1: BasketGround 数据集标注示例。每个球员实例都关联了身份、球衣颜色/号码、动作类型、场上位置以及一段描述性文本。*
 
----
-
-
-> 📌 *Detailed statistics will be updated upon release.*
+### 核心亮点
+- **多维统一标注**: 首次在一个数据集中统一了 "Who (谁)", "What (做什么)", "Where (在哪)" 和 "How (如何描述)"。
+- **高质量标注**: 包含 43 个完整全场比赛视频，468 个视频片段，共计 **5,355** 个精细标注的球员实例。
+- **空间语义增强**: 引入了诸如 "Left Side of the Key"、"Paint" 等篮球专业空间术语。
+- **富有挑战性的基准**: 实验显示，即使是 GPT-4o 和 Gemini 2.5 等大模型，在球员身份识别（<20% 准确率）和复杂动作定位方面仍有巨大的进步空间。
 
 ---
 
-## 🧠 Task Definition
+## 📊 数据统计 (Dataset Statistics)
 
-### 🔹 Task 1: Fine-grained Multi-dimensional Semantic Understanding
-Predict player-related attributes:
-- Player Name
-- Team
-- Jersey Color
-- Jersey Number
-
-### 🔹Task 2: Visual-Evidence-Based Spatio-Temporal Video Grounding
-Given a textual query, localize:
-- ⏱ Temporal segment  
-- 📦 Spatial region  
+| 统计维度 | 数量 / 类别 |
+| :--- | :--- |
+| **视频总数 (Full Games)** | 43 |
+| **视频切片 (Clips)** | 468 |
+| **球员实例 (Annotated Instances)** | 5,355 |
+| **主要动作类别** | Dribble, Pass, Shot, Screening, Defensive Rebound, etc. |
+| **标注维度** | ID, Team, Jersey No., Color, Action, Location, Caption |
 
 ---
 
-## 📏 Evaluation Metrics
+## 🛠 任务定义 (Benchmark Tasks)
 
-We propose a unified evaluation framework:
+### Task 1: 精细化多维语义理解
+要求模型在给定球员裁剪视频（Cropped Tube）和边界框的情况下，联合预测该球员的：
+- **Identity**: 球员姓名。
+- **Action**: 精细动作标签。
+- **Location**: 场上语义位置。
 
-- **VEA (Visual Evidence Accuracy)**
-- **mTIoU (mean Temporal IoU)**
-- **mVIoU (mean Visual IoU)**
-
-We also evaluate **conditional localization performance under different VEA levels**.
+### Task 2: 基于视觉证据的时空视频定位 (STVG)
+给定原始视频和一个包含缺失属性的查询（如：“穿红色球衣的球员正在上篮”），模型需要：
+1. **视觉证据恢复**: 推断出球员的具体姓名、球队等。
+2. **时空定位**: 在视频中回归出该球员完整的时空 Bounding Box 序列。
 
 ---
 
-## 📂 Dataset Structure
+## 🚀 快速开始 (Quick Start)
 
-BASKET/
-│── videos/
-│── annotations/
-│ ├── train.json
-│ ├── val.json
-│ └── test.json
-│── metadata/
-│── splits/
+### 1. 数据下载
+请访问 [Dataset Page](https://github.com/nightPoemy/BasketGround) 下载：
+- `videos/`: 468 个 .mp4 视频片段。
+- `annotations/`: 包含所有多维标注的 JSON 文件。
+- `rosters/`: 对应比赛的球员名单参考。
 
-
-## 📥 Download
-
-🚧 The dataset will be released upon acceptance.
-
-(Anonymous version for review: [LINK])
+### 2. 数据格式示例
+```json
+{
+  "clip_id": "AUS_vs_PHI_01",
+  "instance_id": "player_13_Ezi",
+  "metadata": {
+    "name": "Ezi Magbegor",
+    "team": "Australia",
+    "jersey": "13 (Yellow)",
+    "action": "Block",
+    "location": "Under the basket"
+  },
+  "caption": "Ezi Magbegor, wearing the yellow #13 jersey for Australia, blocks an opponent's shot attempt directly under the basket.",
+  "tube": [
+    {"frame": 449, "bbox": [431, 288, 508, 453]},
+    {"frame": 450, "bbox": [433, 290, 510, 455]}
+  ]
+}
