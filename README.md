@@ -43,9 +43,9 @@ Evaluates a model's ability to jointly recognize **Identity**, **Action**, and *
 
 | Model                  | Identity | Labels | Location |
 |------------------------|----------|--------|----------|
-| Gemini 2.5 Flash [7]   | **18.17** | 31.86  | 71.20    |
-| GPT-4o [20]            | -        | **33.83** | **73.80** |
-| Qwen3-VL-8B-Instruct [3] | 12.51    | 33.60  | 69.87    |
+| Gemini 2.5 Flash   | **18.17** | 31.86  | 71.20    |
+| GPT-4o             | -        | **33.83** | **73.80** |
+| Qwen3-VL-8B-Instruct  | 12.51    | 33.60  | 69.87    |
 
 
 ### Task 2: Visual-Evidence-Based Spatio-Temporal Video Grounding (STVG)
@@ -53,10 +53,31 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 1. **Recover Missing Evidence**: Infer attributes like player name or team from the video.
 2. **Spatio-Temporal Localization**: Precisely ground the player's bounding box sequence across the video.
 
-| Model                | mVEA  | mtIoU | mvIoU | mtIoU@0.50 | mvIoU@0.50 | mtIoU@0.75 | mvIoU@0.75 | mtIoU@1.00 | mvIoU@1.00 |
-|----------------------|-------|-------|-------|------------|------------|------------|------------|------------|------------|
-| Gemini 2.5 Flash     | **78.08** | **9.63** | **1.73** | 3.80       | 1.23       | **9.10**   | **1.95**   | 10.47      | **2.33**   |
-| Qwen3-VL-8B-Instruct | 68.46 | 7.44  | 1.34  | 1.59       | 0.00       | 5.65       | 0.79       | **11.93**  | 2.01       |
+### Global Metrics
+
+| Model                | mVEA  | mtIoU | mvIoU |
+|----------------------|-------|-------|-------|
+| Gemini 2.5 Flash     | **78.08** | **9.63** | **1.73** |
+| Qwen3-VL-8B-Instruct | 68.46 | 7.44  | 1.34  |
+
+### VEA = 0.50
+| Model                | mtIoU | mvIoU |
+|----------------------|-------|-------|
+| Gemini 2.5 Flash     | **3.80** | **1.23** |
+| Qwen3-VL-8B-Instruct | 1.59  | 0.00  |
+
+### VEA = 0.75
+| Model                | mtIoU | mvIoU |
+|----------------------|-------|-------|
+| Gemini 2.5 Flash     | **9.10** | **1.95** |
+| Qwen3-VL-8B-Instruct | 5.65  | 0.79  |
+
+### VEA = 1.00
+| Model                | mtIoU | mvIoU |
+|----------------------|-------|-------|
+| Gemini 2.5 Flash     | 10.47 | **2.33** |
+| Qwen3-VL-8B-Instruct | **11.93** | 2.01  |
+
 
 ---
 
