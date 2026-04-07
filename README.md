@@ -10,8 +10,7 @@
 
 ## 🏀 Dataset Overview
 
-![Overview](https://github.com/nightPoemy/BasketGround/raw/main/assets/overview.png)
-*Figure 1: Overview of BasketGround. We enrich each player tube with identity, team affiliation, jersey attributes, fine-grained actions, court locations, and natural-language captions.*
+We enrich each player tube with identity, team affiliation, jersey attributes, fine-grained actions, court locations, and natural-language captions.*
 
 ### Key Features
 - **Multi-dimensional Annotation**: Unlike datasets focusing on isolated tasks, BasketGround unifies:
@@ -19,8 +18,8 @@
   - **What**: Fine-grained basketball actions (e.g., *Basketball Drive, Block, Pass Steal*).
   - **Where**: Semantic court positions (e.g., *Left Side of the Key, Paint, Corner*).
   - **How**: High-quality basketball-oriented natural language descriptions.
-- **Scale**: Includes **43 full-game videos**, **468 clips**, and **5,355 annotated player instances**.
-- **Challenging Benchmarks**: Experiments show that state-of-the-art Large Multimodal Models (LMMs) like GPT-4o and Gemini 2.5 still struggle with fine-grained identity recognition and evidence-grounded localization.
+
+- **Challenging Benchmarks**: Experiments show that representative Large Multimodal Models (LMMs) like GPT-4o and Gemini 2.5 still struggle with fine-grained identity recognition and evidence-grounded localization.
 
 ---
 
@@ -48,10 +47,13 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 
 ---
 
-## 🚀 Getting Started
+##  📊 supplementary material
 
-### 1. Requirements
-```bash
-git clone https://github.com/nightPoemy/BasketGround.git
-cd BasketGround
-pip install -r requirements.txt
+
+## 🚀 Data Download
+Download the videos and annotation files from our Dataset Page.
+Structure your data folder as follows:
+data/
+├── videos/          # .mp4 clips
+├── annotations/     # Multi-dimensional JSON annotations
+└── rosters/         # Team rosters and box scores
