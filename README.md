@@ -1,6 +1,6 @@
 # BasketGround: A Multi-dimensional Vision-Language Dataset for Basketball Video Analysis
 
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-red)](https://github.com/nightPoemy/BasketGround)
+
 [![Dataset](https://img.shields.io/badge/Dataset-Download-blue)](https://github.com/nightPoemy/BasketGround)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-green)](LICENSE)
 
@@ -84,10 +84,16 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 ##  📊 supplementary material
 
 
+
 ## 🚀 Data Download
+
 Download the videos and annotation files from our Dataset Page.
 Structure your data folder as follows:
+
+```
 data/
 ├── videos/          # .mp4 clips
 ├── annotations/     # Multi-dimensional JSON annotations
 └── rosters/         # Team rosters and box scores
+```
+
