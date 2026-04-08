@@ -88,6 +88,7 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 ## 🚀 Data Download
 
 Download the videos and annotation files from our Dataset Page.
+Raw videos files can be downloaded in https://huggingface.co/datasets/lalalal2/BasketGround
 Structure your data folder as follows:
 
 ```
