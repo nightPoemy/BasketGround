@@ -1,8 +1,8 @@
 # BasketGround: A Multi-dimensional Vision-Language Dataset for Basketball Video Analysis
 
 
-[![Dataset](https://img.shields.io/badge/Dataset-Download-blue)](https://github.com/nightPoemy/BasketGround)
-[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-green)](LICENSE)
+[![Dataset](https://img.shields.io/badge/Dataset-Download-blue)](https://huggingface.co/datasets/lalalal2/BasketGround)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green)](https://huggingface.co/datasets/lalalal2/BasketGround)
 
 **BasketGround** is a semantically augmented basketball video dataset designed to bridge the gap in unified modeling of player identity, action, court location, and natural language. Built upon the basketball subset of [MultiSports](https://github.com/MCG-NJU/MultiSports), it transforms action-oriented tracking data into a multi-dimensional benchmark for fine-grained sports understanding.
 
