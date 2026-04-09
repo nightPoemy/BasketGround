@@ -81,7 +81,7 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 
 ---
 
-##  📊 supplementary material
+##  📊 Supplementary Material
 
 More details about BasketGround can be found in the https://drive.google.com/file/d/1iJpYBHzGlYxzXUMsIdvcTp4dMmeG5Lj_/view?usp=sharing or 
 https://docs.qq.com/pdf/DYUdDcUJUTkN3Q1p3
