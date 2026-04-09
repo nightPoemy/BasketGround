@@ -83,12 +83,14 @@ A more challenging task where the model is given an incomplete query (e.g., *"Th
 
 ##  📊 supplementary material
 
-More details about BasketGround can be found in the https://drive.google.com/file/d/1iJpYBHzGlYxzXUMsIdvcTp4dMmeG5Lj_/view?usp=sharing
+More details about BasketGround can be found in the https://drive.google.com/file/d/1iJpYBHzGlYxzXUMsIdvcTp4dMmeG5Lj_/view?usp=sharing or 
+https://docs.qq.com/pdf/DYVZ3VnduZEZSV0FF
 
 ## 🚀 Data Download
 
 Download the videos and annotation files from our Dataset Page.
 Raw videos files can be downloaded in https://huggingface.co/datasets/lalalal2/BasketGround
+
 Structure your data folder as follows:
 
 ```
