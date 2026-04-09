@@ -93,8 +93,14 @@ Structure your data folder as follows:
 
 ```
 data/
-├── videos/          # .mp4 clips
-├── annotations/     # Multi-dimensional JSON annotations
-└── rosters/         # Team rosters and box scores
+├── videos/                          # Video clips (.mp4)
+├── original_caption.json            # Verified Captions
+├── processed_caption.json           # Generalized captions
+├── splits_and_rosters.json          # Dataset split and player roster information
+├── train.json                       # Training annotations
+├── test.json                        # Test annotations
+├── train_instances_with_player_info.json  # Training data with player attributes
+├── test_instances_with_player_info.json   # Test data with player attributes
 ```
+
 
